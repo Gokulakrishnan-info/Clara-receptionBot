@@ -10,23 +10,23 @@ BASE_DIR = os.getenv("VR_BASE_DIR", os.getcwd())
 # Data file paths (env overrideable)
 EMPLOYEE_CSV = os.getenv(
     "VR_EMPLOYEE_CSV",
-    os.path.join(BASE_DIR, "dummy-data", "employee_details.csv"),
+    os.path.join(BASE_DIR, "data", "employee_details.csv"),
 )
 CANDIDATE_CSV = os.getenv(
     "VR_CANDIDATE_CSV",
-    os.path.join(BASE_DIR, "dummy-data", "candidate_interview.csv"),
+    os.path.join(BASE_DIR, "data", "candidate_interview.csv"),
 )
 COMPANY_INFO_PDF = os.getenv(
     "VR_COMPANY_INFO_PDF",
-    os.path.join(BASE_DIR, "dummy-data", "company_info.pdf"),
+    os.path.join(BASE_DIR, "data", "company_info.pdf"),
 )
 VISITOR_LOG = os.getenv(
     "VR_VISITOR_LOG",
-    os.path.join(BASE_DIR, "dummy-data", "visitor_log.csv"),
+    os.path.join(BASE_DIR, "data", "visitor_log.csv"),
 )
 MANAGER_VISIT_CSV = os.getenv(
     "VR_MANAGER_VISIT_CSV",
-    os.path.join(BASE_DIR, "dummy-data", "manager_visit.csv"),
+    os.path.join(BASE_DIR, "data", "manager_visit.csv"),
 )
 
 # Wake/sleep defaults (env overrideable)

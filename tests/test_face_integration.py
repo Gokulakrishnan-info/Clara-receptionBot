@@ -1,6 +1,6 @@
 import types
 
-from face_integration import FaceGreetingService
+from face_recognition.face_integration import FaceGreetingService
 
 
 def test_greet_invoked(monkeypatch, tmp_path):

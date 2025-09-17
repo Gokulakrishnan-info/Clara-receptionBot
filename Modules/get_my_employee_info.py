@@ -259,3 +259,39 @@ async def get_employee_by_name(context: RunContext, name: str) -> str:
         return "❌ Employee database file is missing."
     except Exception as e:
         return f"❌ Error searching employee information: {str(e)}"
+
+
+@function_tool()
+async def who_am_i(context: RunContext) -> str:
+    """
+    Return a concise self-identification for the currently authenticated employee.
+    Example: "You are the Software Engineer at Engineering at our InfoServices."
+    """
+    try:
+        # Ensure there is a current authenticated employee
+        from .state import current_employee_id
+        if not current_employee_id:
+            return "❌ You need to be authenticated first. Please use face recognition or OTP verification."
+
+        empid_norm = re.sub(r"\s+", "", current_employee_id).strip().upper()
+        if not employee_access.get(empid_norm, {}).get("granted", False):
+            return "❌ You need to be authenticated first. Please use face recognition or OTP verification."
+
+        # Load employee data
+        df = pd.read_csv(config.EMPLOYEE_CSV, dtype=str).fillna("")
+        df["EmployeeID_norm"] = df["EmployeeID"].astype(str).str.strip().str.upper()
+
+        match = df[df["EmployeeID_norm"] == empid_norm]
+        if match.empty:
+            return "❌ Employee record not found."
+
+        row = match.iloc[0]
+        role = str(row.get("Role", "")).strip() or "Employee"
+        dept = str(row.get("Department", "")).strip() or "your department"
+
+        return f"You are the {role} at {dept} at our InfoServices."
+
+    except FileNotFoundError:
+        return "❌ Employee database file is missing."
+    except Exception as e:
+        return f"❌ Error answering who you are: {str(e)}"

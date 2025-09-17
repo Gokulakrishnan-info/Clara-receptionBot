@@ -80,7 +80,7 @@ def validate_all_data():
     print("=" * 50)
     
     # Check employee CSV
-    employee_csv = "dummy-data/employee_details.csv"
+    employee_csv = "data/employee_details.csv"
     if os.path.exists(employee_csv):
         valid, message = validate_employee_csv(employee_csv)
         print(f"Employee CSV: {'✅' if valid else '❌'} {message}")
@@ -88,7 +88,7 @@ def validate_all_data():
         print("❌ Employee CSV not found")
     
     # Check candidate CSV
-    candidate_csv = "dummy-data/candidate_interview.csv"
+    candidate_csv = "data/candidate_interview.csv"
     if os.path.exists(candidate_csv):
         valid, message = validate_candidate_csv(candidate_csv)
         print(f"Candidate CSV: {'✅' if valid else '❌'} {message}")
@@ -102,8 +102,8 @@ def validate_all_data():
     
     # Check other required files
     required_files = [
-        "dummy-data/company_info.pdf",
-        "dummy-data/manager_visit.csv"
+        "data/company_info.pdf",
+        "data/manager_visit.csv"
     ]
     
     for file_path in required_files:

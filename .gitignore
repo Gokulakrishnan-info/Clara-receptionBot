@@ -29,15 +29,15 @@ Thumbs.db
 # -----------------------------
 # Project specific (Virtual Receptionist)
 # -----------------------------
-# CSV dummy-data (sensitive logs)
+# CSV data files (sensitive logs)
 *.csv
-!dummy-data/sample_structure.csv   # allow a template if you want
+!data/sample_structure.csv   # allow a template if you want
 
 # Visitor, Employee, Candidate data
-dummy-data/employee_details.csv
-dummy-data/candidate_interview.csv
-dummy-data/visitor_log.csv
-dummy-data/manager_visit.csv
+data/employee_details.csv
+data/candidate_interview.csv
+data/visitor_log.csv
+data/manager_visit.csv
 
 # Config / secrets
 config/
@@ -59,6 +59,13 @@ KMS/logs/
 coverage/
 .coverage*
 *.pid
+
+# Employee photos and face data
+Employee/
+employee_photos/
+*.jpg
+*.png
+*.jpeg
 
 # Environment variables
 *.env

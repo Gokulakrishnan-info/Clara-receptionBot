@@ -15,4 +15,7 @@ face_recognition_completed = False
 # Current authenticated employee
 current_employee_id = None
 
+# Current user's declared role for gating flows: 'employee' | 'candidate' | 'visitor' | None
+selected_role = None
+
 

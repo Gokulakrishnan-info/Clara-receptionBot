@@ -59,10 +59,10 @@ def check_data_files():
     print("\n📁 Checking data files...")
     
     required_files = [
-        "dummy-data/employee_details.csv",
-        "dummy-data/candidate_interview.csv", 
-        "dummy-data/company_info.pdf",
-        "dummy-data/manager_visit.csv"
+        "data/employee_details.csv",
+        "data/candidate_interview.csv", 
+        "data/company_info.pdf",
+        "data/manager_visit.csv"
     ]
     
     missing_files = []
@@ -82,6 +82,8 @@ def check_data_files():
     # Validate data files
     print("\n🔍 Validating data files...")
     try:
+        import sys
+        sys.path.append('scripts')
         import validate_data
         validate_data.validate_all_data()
     except Exception as e:
@@ -97,7 +99,7 @@ def check_face_embeddings():
         return True
     else:
         print("⚠️  Face embeddings not found")
-        print("   Run 'python Face/Faces/enroll_faces.py' to create face embeddings")
+        print("   Run 'python face_recognition/enroll_faces.py' to create face embeddings")
         return False
 
 def main():
@@ -127,7 +129,7 @@ def main():
     print("=" * 60)
     print("\nNext steps:")
     print("1. Edit .env file with your Gmail credentials")
-    print("2. Create face embeddings: python Face/Faces/enroll_faces.py")
+    print("2. Create face embeddings: python face_recognition/enroll_faces.py")
     print("3. Run the bot: python agent.py console")
     print("\nFor face recognition mode:")
     print("   $env:VR_FACE_EMBEDDINGS=\"face_embeddings.pkl\"; $env:AUTO_FACE_GREETING=\"1\"; python agent.py console")

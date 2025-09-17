@@ -18,7 +18,7 @@ class DummyContext:
 
 
 def test_face_greeting_and_company_info(monkeypatch):
-    import face_integration as fi
+    import face_recognition.face_integration as fi
     from Modules.company_info import company_info
 
     # 1) Bypass wake word
